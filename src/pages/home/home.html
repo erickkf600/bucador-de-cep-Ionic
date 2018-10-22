@@ -1,0 +1,17 @@
+<ion-header>
+</ion-header>
+
+<ion-content padding>
+  <p id="titulo">Busque um CEP</p>
+  <form [formGroup] = "formGroup" (ngSubmit) = "buscaCEP()" id="form">
+    <ion-item>
+      <ion-label stacked>Digite seu CEP</ion-label>
+      <ion-input type="text" formControlName="cep"></ion-input>
+    </ion-item>
+    <div padding>
+      <button ion-button block type="submit" color="dark">BUSCAR</button>
+    </div>
+  </form>
+
+
+</ion-content>
