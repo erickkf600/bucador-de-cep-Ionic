@@ -1,5 +1,6 @@
 <ion-header>
   <ion-navbar>
+      <ion-title>Telefones UFCA</ion-title>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -8,11 +9,11 @@
 
 
 <ion-content padding>
-  <p id="titulo">LISTA DE TELEFONE UFCA</p>
-  <ion-card *ngFor="let telefone of telefones">
-    <ion-card-header id="header">
+  <p id="titulo">LISTA DE TELEFONES UFCA</p>
+  <ion-card *ngFor="let telefone of telefonesPage">
+    <ion-card-title id="header">
       {{telefone.unidade_localizacao}}
-    </ion-card-header>
+    </ion-card-title>
 
     <ion-card-content>
       <P>{{telefone.numero}}</P>
