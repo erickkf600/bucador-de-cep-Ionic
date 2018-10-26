@@ -1,11 +1,16 @@
 <ion-header>
-</ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-navbar>
+  </ion-header>
 
-<ion-content padding>
+<ion-content padding id="content">
   <p id="titulo">Busque um CEP</p>
   <form [formGroup] = "formGroup" (ngSubmit) = "buscaCEP()" id="form">
     <ion-item>
-      <ion-label stacked>Digite seu CEP</ion-label>
+      <ion-label stacked>Digite um CEP</ion-label>
       <ion-input type="text" formControlName="cep"></ion-input>
     </ion-item>
     <div padding>

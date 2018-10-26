@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <p id="titulo">LISTA DE TELEFONE UFCA</p>
+  <ion-card *ngFor="let telefone of telefones">
+    <ion-card-header id="header">
+      {{telefone.unidade_localizacao}}
+    </ion-card-header>
+
+    <ion-card-content>
+      <P>{{telefone.numero}}</P>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+    <p id="titulo">Processos administrativos da UFCA</p>
+    <ion-card *ngFor="let processo of processos">
+           <ion-card-header>
+             {{processo.processo}}
+            </ion-card-header>  
+           <ion-card-content>
+            <P>{{processo.assunto}}</P>
+          </ion-card-content>
+      </ion-card>
+</ion-content>
