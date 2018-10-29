@@ -9,7 +9,11 @@
 
 
 <ion-content padding>
-  <p id="titulo">LISTA DE TELEFONES UFCA</p>
+    <p id="titulo">LISTA DE TELEFONES UFCA</p>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+  
   <ion-card *ngFor="let telefone of telefonesPage">
     <ion-card-title id="header">
       {{telefone.unidade_localizacao}}
@@ -19,4 +23,9 @@
       <P>{{telefone.numero}}</P>
     </ion-card-content>
   </ion-card>
+  
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+   
 </ion-content>

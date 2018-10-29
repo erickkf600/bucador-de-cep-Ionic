@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ProcessoService } from '../../service/processo.service';
 import { Processo } from '../../model/processo';
 
@@ -12,15 +12,51 @@ import { Processo } from '../../model/processo';
 export class ProcessoPage {
   processos: Processo[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public service: ProcessoService) {
-  }
+  processoPage:Processo[] = [];
+  page: number = 0;
   
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public service: ProcessoService,
+              public loading: LoadingController) {
+  }
+
   ionViewDidLoad() {
+    this.getProcessos();
+  }
+
+  getProcessos(){
     this.service.getProcessos()
     .subscribe(response => {
       this.processos =  response;
-      //console.log(this.processos);
+      this.addPage();
     });
   }
 
+  addPage(){
+    for(var i = 0; i<10; i++){
+      this.processoPage.push(this.processos[this.page]);
+      this.page++;
+    }
+    console.log(this.processoPage);
+  }
+
+  doRefresh(refresher) {
+    this.processoPage = [];
+
+    setTimeout(() => {
+      this.getProcessos();
+      refresher.complete();
+    }, 2000);
+  }
+
+  doInfinite(infiniteScroll) {
+
+    setTimeout(() => {
+      this.addPage();
+      infiniteScroll.complete();
+    }, 500);
+  }
+
+  
 }

@@ -39,4 +39,21 @@ export class TelefonePage {
     console.log(this.telefonesPage);
   }
 
+  doRefresh(refresher) {
+    this.telefonesPage = [];
+
+    setTimeout(() => {
+      this.getTelefones();
+      refresher.complete();
+    }, 2000);
+  }
+
+  doInfinite(infiniteScroll) {
+
+    setTimeout(() => {
+      this.addPage();
+      infiniteScroll.complete();
+    }, 500);
+  }
+
 }
